@@ -1,0 +1,199 @@
+<doctype <!DOCTYPE html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sayfa boyutlarına göre genişlik ölçeklendirmesi için -->
+
+        <html>
+
+    <head>
+        <!-- 700 pikselden küçük ekran genişliklerinde mobil tasarıma yönlendirmesi için -->
+            <script type="text/javascript">
+                if (screen.width <= 699) {
+                document.location = "mobile";
+                }
+
+                </script>
+        
+        
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Vote Page</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <style>
+            /*<!--Css Kodlarını style içine yaz -->*/
+            .btn { /*   .btn  bize btn adında bir class oluşturur */
+                background: #3498db;
+                background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+                background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+                background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+                background-image: -o-linear-gradient(top, #3498db, #2980b9);
+                background-image: linear-gradient(to bottom, #3498db, #2980b9);
+                -webkit-border-radius: 28;
+                -moz-border-radius: 28;
+                border-radius: 28px;
+                text-shadow: 1px 1px 3px #666666;
+                -webkit-box-shadow: 0px 1px 3px #666666;
+                -moz-box-shadow: 0px 1px 3px #666666;
+                box-shadow: 0px 1px 3px #666666;
+                font-family: Arial;
+                color: #ffffff;
+                font-size: 20px;
+                background: #3498db;
+                padding: 10px 20px 10px 20px;
+                border: solid #1f628d 2px;
+                text-decoration: none;
+                text-align: center;
+                margin: 4px 2px;
+                cursor:pointer;
+              }
+
+              .btn:hover {/*   .btn: xXx  bize btn class'ında xXx özelliğini oluşturur (hover = cursor butona gelince renk değişimi) */
+                background: #3cb0fd;
+                background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+                background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+                background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+                background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+                background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+                text-decoration: none;
+
+
+              }
+
+        #Container { /*Container adındaki div'i (parçayı) tanımlamak için class açtın gibi düşün*/
+            widows: 800px;
+            height: auto;
+            margin-left: auto;/*soldan ve sağdan ortalıyor*/
+            margin-right: auto;
+            background-color: #ffffff;
+
+        }
+
+        #Header{
+            height: 150px;
+            background-color:#ffffff;
+            text-align: center;
+
+
+        }
+
+        #Sidebar {
+            width: 150px;
+            height: 600px;
+            background-color: #ffffff;
+            float: left;
+
+        }
+
+        #MainBody{
+
+            height: 600px;
+            width: auto;
+            background-color: #00EBFF;
+            float: inherit;
+
+        }
+
+        #Footer{
+
+            background-color:#ffffff;
+            height: 50px;
+            margin-bottom: 21px;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+        #resetdiv {
+            display: none;
+            width: 100%;
+            padding: 0 0 0 0;
+            text-align: center;
+            background-color: red;
+            margin-top: 50px;
+        }
+       
+
+        </style>
+
+
+        </head>
+        <body>
+                <!-- Container division which contains Hit and Total value counts-->
+            <div id = "Container">Hits : <a id="hit">{{hit}}</a> 
+                <br>
+                Total Vote : <a id="oy">{{oy}}</a>
+            </div>
+            <div id	= "Header" > <!--Header division which contains Header message and error message if wrong password submitted-->
+                <form id="form" name="form" action="/" method="post"> <!---->
+                    {% with messages = get_flashed_messages() %}
+                        {%if messages %}
+                            {%for message in messages%}
+                                <h2 style="color:red">{{message}}</h2>
+                            {%endfor%}
+                        {%endif%}
+                    {% endwith %}
+                <h1 align="center"> Siz Hangi Operatörü Kullanıyorsunuz ?</h1>
+
+            </div>
+            
+            <div class="row">
+                    <div class="column"align="center"><img src="static/Turkcell.jpeg" alt="Turkcell" style="width:150px;height:200px;"></div><!-- -->
+                    <div class="column"align="center"><img src="static/TurkTelekom2.jpg" alt="Turk Telekom" style="width:150px;height:200px;"></div>
+                    <div class="column"align="center"><img src="static/vodafone.jpg" alt="Vodafone" style="width:150px;height:200px;"></div>
+                  </div>
+
+            <div class="row">
+                    <div class="column" align="center"><button class="btn" name="vote" value="{{button1}}" >Turkcell </button></div>
+                    <div class="column" align="center"><button class="btn" name="vote" value="{{button2}}" >Turk Telekom </button></div>
+                    <div class="column" align="center"><button class="btn" name="vote" value="{{button3}}" >Vodafone </button></div>
+                  </div>
+            <div class="row">
+                    <div class="column" align="center"><p>Votes: <a id="button1">{{value1}}</a></p></div>
+                    <div class="column" align="center"><p>Votes: <a id="button2">{{value2}}</a></p></div>
+                    <div class="column" align="center"><p>Votes: <a id="button3">{{value3}}</a></p></div>
+                  </div>
+                  <div id = "Footer" align="center"></div>
+
+                </form>
+                <div class="row"align="center">
+                <button class="btn" onclick="resetdivopen()">Reset</button>
+                    <div id="resetdiv">
+                        <form id="vote" name="vote" action="/" method="post">
+                            <h1>This action cannot be undone !</h1>
+                            <h2>Please enter your password :</h2>
+                            
+                            <input type="text" name="ppasswrd" id ="ppasswrd" max="16" method="POST" aria-required="true">
+                            <br><br>
+                            <button class="btn" name="vote" value="reset" >Reset</button>
+                        </form>
+                    </div>
+                  </div>
+                  <script>
+                        function resetdivopen() {
+                            var x = document.getElementById("resetdiv");
+                            if (x.style.display == "none") {
+                                x.style.display = "block";
+                            } else {
+                                x.style.display = "none";
+                            }
+                        }
+                        </script>
+
+        </body>
+
+
+
+        </html>
