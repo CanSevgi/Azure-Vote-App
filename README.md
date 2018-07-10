@@ -62,7 +62,8 @@ Kubectl get nodes
 
 Vi azure-vote.yml
 
-"
+##
+```
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
@@ -122,7 +123,8 @@ spec:
   - port: 80
   selector:
     app: azure-vote-front    
-"
+```
+##
 
 **Deploy Application**
 
