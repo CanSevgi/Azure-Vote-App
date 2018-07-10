@@ -138,26 +138,27 @@
             </div>
             <div id	= "Header" > <!--Header division which contains Header message and error message if wrong password submitted-->
                 <form id="form" name="form" action="/" method="post"> <!---->
-                    {% with messages = get_flashed_messages() %}
+                    {% with messages = get_flashed_messages()%}
                         {%if messages %}
                             {%for message in messages%}
                                 <h2 style="color:red">{{message}}</h2>
                             {%endfor%}
                         {%endif%}
                     {% endwith %}
+
                 <h1 align="center"> Siz Hangi Operatörü Kullanıyorsunuz ?</h1>
 
             </div>
             
             <div class="row">
-                    <div class="column"align="center"><img src="static/Turkcell.jpeg" alt="Turkcell" style="width:150px;height:200px;"></div><!-- -->
-                    <div class="column"align="center"><img src="static/TurkTelekom2.jpg" alt="Turk Telekom" style="width:150px;height:200px;"></div>
-                    <div class="column"align="center"><img src="static/vodafone.jpg" alt="Vodafone" style="width:150px;height:200px;"></div>
+                    <div class="column"align="center"><img src="static/Turkcell.jpeg" alt="Turkcell" style="width:150px;height:150px;"></div><!-- -->
+                    <div class="column"align="center"><img src="static/TurkTelekom2.jpg" alt="Turk Telekom" style="width:150px;height:150px;"></div>
+                    <div class="column"align="center"><img src="static/vodafone.jpg" alt="Vodafone" style="width:150px;height:150px;"></div>
                   </div>
 
             <div class="row">
                     <div class="column" align="center"><button class="btn" name="vote" value="{{button1}}" >Turkcell </button></div>
-                    <div class="column" align="center"><button class="btn" name="vote" value="{{button2}}" >Turk Telekom </button></div>
+                    <div class="column" align="center"><button class="btn" name="vote" value="{{button2}}" >Türk Telekom </button></div>
                     <div class="column" align="center"><button class="btn" name="vote" value="{{button3}}" >Vodafone </button></div>
                   </div>
             <div class="row">

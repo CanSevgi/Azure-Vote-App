@@ -160,7 +160,7 @@ def mobile():
 
                     r.set(oy1,0)
                     
-                    return redirect(url_for('mobil'))
+                    return redirect(url_for('mobile'))
                 else :
                     flash("Wrong Password")
                     return redirect(url_for('mobile'))

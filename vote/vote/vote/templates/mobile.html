@@ -6,7 +6,7 @@
         <head>
                 <script type="text/javascript">
                     if (screen.width >= 700) {
-                    document.location = "index.html";
+                    document.location = "/";
                     }
                     
                     </script>
@@ -137,9 +137,8 @@
                     Total Vote : <a id="oy">{{oy}}</a>
                 </div>
                 <div id	= "Header" >
-                        
                     <form id="form" name="form" action="/" method="post">
-                        {% with messages = get_flashed_messages() %}
+                        {% with messages = get_flashed_messages()%}
                             {%if messages %}
                                 {%for message in messages%}
                                     <h2 style="color:red">{{message}}</h2>
