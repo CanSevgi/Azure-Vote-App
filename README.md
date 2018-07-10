@@ -1,4 +1,4 @@
-**Setting Bash default subscription: **
+**Setting Bash default subscription:**
 
 az account list
 az account set --subscription <subscription-id>
@@ -40,9 +40,11 @@ i.e : “az acr repository list --name VoteContainer --output table”
 
 **Create Kubernetes Cluster :**
 
-az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys
-i.e : “az acs create --orchestrator-type kubernetes --resource-group VoteResourceGroup --name KubernetesCluster --generate-ssh-keys”
-if limited available cores not enough, add “--agent-count 1” to end of the line
+az acs create --orchestrator-type kubernetes --resource-group VoteResourceGroup --name myK8SCluster --generate-ssh-keys
+
+*if limited available cores not enough, add “--agent-count 1” to end of the line*
+
+
 
 **Install the kubectl CLI :**
 
@@ -62,7 +64,6 @@ Vi azure-vote.yml
 
 
 ##
-
 
 apiVersion: apps/v1beta1
 kind: Deployment
@@ -122,8 +123,7 @@ spec:
   ports:
   - port: 80
   selector:
-    app: azure-vote-front
-    
+    app: azure-vote-front    
 ##
 
 
@@ -133,6 +133,6 @@ kubectl create -f azure-vote-all-in-one-redis.yml
 
 kubectl get service azure-vote-front --watch
 
-Wait for external ip and use it for reaching your page.
+*Wait for external ip and use it for reaching your page.*
 
 
