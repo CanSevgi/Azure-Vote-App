@@ -46,7 +46,7 @@ spec:
     spec:
       containers:
       - name: azure-vote-front
-        image: votecontainer.azurecr.io/front
+        image: cansevgi/front
         ports:
         - containerPort: 80
         env:

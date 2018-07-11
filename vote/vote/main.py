@@ -50,6 +50,9 @@ if not r.get(oy1): r.set(oy1,0)
 
 @app.route("/", methods = ["GET","POST"])  # yani kök dizinde ise index() fonksiyonunu çalıştır
 def index():
+    labels = ["Turkcell","TurkTelekom","Vodafone"]
+    values = ["vote1","vote2","vote3"]
+    colors = [ "#F7464A", "#46BFBD", "#FDB45C"]
     global hit
     global hit1
     global oy
@@ -70,7 +73,7 @@ def index():
             vote3 = r.get(button3).decode('utf-8')
             oy=r.get(oy1).decode('utf-8')
             
-            return render_template("index.html",button1="Turkcell",button2="TurkTelekom",button3="Vodafone",value1=int(vote1),value2=int(vote2),value3=int(vote3),hit=int(hit),oy=int(oy)) #vote.html 'yi açar
+            return render_template("index.html",button1="Turkcell",button2="TurkTelekom",button3="Vodafone",value1=int(vote1),value2=int(vote2),value3=int(vote3),hit=int(hit),oy=int(oy),set=zip(values, labels, colors)) #vote.html 'yi açar
 
 
         elif request.method == 'POST':
@@ -225,3 +228,4 @@ def notfound(e):
 
 if __name__ == "__main__": #main'de çalıştırılıyorsa
     app.run() #debug modunda programı çalıştırır (python app.py nin çalışmasını ve çalışır kalmasını sağlar)
+

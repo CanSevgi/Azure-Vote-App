@@ -12,7 +12,7 @@
 
                 </script>
         
-        
+           
             <meta charset="utf-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <title>Vote Page</title>
@@ -124,13 +124,14 @@
             background-color: red;
             margin-top: 50px;
         }
-       
+
 
         </style>
 
 
         </head>
         <body>
+                
                 <!-- Container division which contains Hit and Total value counts-->
             <div id = "Container">Hits : <a id="hit">{{hit}}</a> 
                 <br>
@@ -165,10 +166,39 @@
                     <div class="column" align="center"><p>Votes: <a id="button1">{{value1}}</a></p></div>
                     <div class="column" align="center"><p>Votes: <a id="button2">{{value2}}</a></p></div>
                     <div class="column" align="center"><p>Votes: <a id="button3">{{value3}}</a></p></div>
+                    
                   </div>
                   <div id = "Footer" align="center"></div>
 
                 </form>
+
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+                <script type="text/javascript">
+
+                // Load google charts
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+
+                // Draw the chart and set the chart values
+                function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Work', 2],
+                ['Eat', 3],
+                ['TV', 2]
+
+                ]);
+
+                // Optional; add a title and set the width and height of the chart
+                var options = {'title':'My Average Day', 'width':550, 'height':400};
+
+                // Display the chart inside the <div> element with id="piechart"
+                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                chart.draw(data, options);
+                }
+                chart.draw(data, options);
+                </script>
                 <div class="row"align="center">
                 <button class="btn" onclick="resetdivopen()">Reset</button>
                     <div id="resetdiv">
@@ -192,6 +222,7 @@
                             }
                         }
                         </script>
+                        
 
         </body>
 
