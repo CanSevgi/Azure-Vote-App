@@ -1,10 +1,11 @@
 <doctype <!DOCTYPE html>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sayfa boyutlarına göre genişlik ölçeklendirmesi için -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
         <html>
 
     <head>
-        <!-- 700 pikselden küçük ekran genişliklerinde mobil tasarıma yönlendirmesi için -->
+        
+        <!-- Check for mobile screen width -->
             <script type="text/javascript">
                 if (screen.width <= 699) {
                 document.location = "mobile";
@@ -20,8 +21,8 @@
 
 
         <style>
-            /*<!--Css Kodlarını style içine yaz -->*/
-            .btn { /*   .btn  bize btn adında bir class oluşturur */
+            
+            .btn { 
                 background: #3498db;
                 background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
                 background-image: -moz-linear-gradient(top, #3498db, #2980b9);
@@ -47,7 +48,7 @@
                 cursor:pointer;
               }
 
-              .btn:hover {/*   .btn: xXx  bize btn class'ında xXx özelliğini oluşturur (hover = cursor butona gelince renk değişimi) */
+              .btn:hover {
                 background: #3cb0fd;
                 background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
                 background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
@@ -59,10 +60,10 @@
 
               }
 
-        #Container { /*Container adındaki div'i (parçayı) tanımlamak için class açtın gibi düşün*/
+        #Container { 
             widows: 800px;
             height: auto;
-            margin-left: auto;/*soldan ve sağdan ortalıyor*/
+            margin-left: auto;
             margin-right: auto;
             background-color: #ffffff;
 
@@ -105,7 +106,7 @@
             width: 33.33%;
         }
 
-        /* Clear floats after the columns */
+        
         .row:after {
             content: "";
             display: table;
@@ -172,33 +173,6 @@
 
                 </form>
 
-                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-                <script type="text/javascript">
-
-                // Load google charts
-                google.charts.load('current', {'packages':['corechart']});
-                google.charts.setOnLoadCallback(drawChart);
-
-                // Draw the chart and set the chart values
-                function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Work', 2],
-                ['Eat', 3],
-                ['TV', 2]
-
-                ]);
-
-                // Optional; add a title and set the width and height of the chart
-                var options = {'title':'My Average Day', 'width':550, 'height':400};
-
-                // Display the chart inside the <div> element with id="piechart"
-                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-                chart.draw(data, options);
-                }
-                chart.draw(data, options);
-                </script>
                 <div class="row"align="center">
                 <button class="btn" onclick="resetdivopen()">Reset</button>
                     <div id="resetdiv">
